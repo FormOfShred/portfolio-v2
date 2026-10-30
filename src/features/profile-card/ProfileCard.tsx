@@ -1,7 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
-import { BookA, Clock, Code, Heart, Palette } from "lucide-react"
-import type { ReactNode } from "react"
+import Card from "@/components/custom/card/card";
+import { BookA, Clock, Code, Heart, PaintBucket } from "lucide-react";
+import type { ProfileCardInformationSectionProps } from "./ProfileCard.types";
 
 const ASCII = `
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -37,60 +36,55 @@ const ASCII = `
 ⢺⣥⢿⠾⠿⠿⠿⡿⠚⢋⣠⠯⣿⢉⢉⠻⠾⠛⢿⣿⠻⠿⢛⢋⣤⣯⣭⠽⠶⣾⣻⢿⣻⢿⠶⢛⣻⡿⢽⠄
 `
 
-const InfoItem = ({ icon, info }: { icon: ReactNode, info: ReactNode}) => {
+const ProfileCardInformationSection = ({
+  icon, 
+  title
+}: ProfileCardInformationSectionProps) => {
   return (
-    <Item className="p-0">
-      <ItemTitle className="text-secondary-foreground">{icon}</ItemTitle>
-      <ItemDescription>
-          { info }
-      </ItemDescription>
-    </Item>
-  )
-}
-
-const ColorSection = () => {
-  return (
-    <div className="flex">
-      <span className="bg-background w-5 h-5"></span>
-      <span className="bg-foreground w-5 h-5"></span>
-      <span className="bg-border w-5 h-5"></span>
-      <span className="bg-card w-5 h-5"></span>
-      <span className="bg-primary-foreground w-5 h-5"></span>
-      <span className="bg-secondary-foreground w-5 h-5"></span>
+    <div className="flex gap-2 items-center">
+      {icon}
+      <span>{title}</span>
     </div>
   )
 }
 
-
-export const ProfileCard = () => {
+const ProfileCardColorPalette = () => {
   return (
-    <Card>
-      <CardContent>
-        <Item>
-          <ItemMedia>
-            <div style={{
-                whiteSpace: "pre",
-                fontFamily: "monospace",
-                overflowX: "auto",
-                lineHeight: 1.1,
-                fontSize: "5px"
-              }}
-            >
-              {ASCII}
-            </div>
-          </ItemMedia>
-          <ItemContent>
-            <ItemTitle className="text-primary-foreground">robynhamelryck@portfolio</ItemTitle>
-            <ItemDescription>
-              <InfoItem icon={<BookA size={16}/>} info={<span>Dutch, English</span>} />
-              <InfoItem icon={<Code size={16}/>} info={<span>React, TypeScript, Redux</span>} />
-              <InfoItem icon={<Clock size={16}/>} info={<span>2 years+</span>}  />
-              <InfoItem icon={<Heart size={16}/>} info={<span>Gaming, Football, Reading, Coding</span>}  />
-              <InfoItem icon={<Palette size={16}/>} info={<ColorSection />}  />
-            </ItemDescription>
-        </ItemContent>
-        </Item>
-      </CardContent>
+    <div className="flex">
+      <span className="bg-background w-5 h-5"></span>
+      <span className="bg-foreground w-5 h-5"></span>
+      <span className="bg-card-background w-5 h-5"></span>
+    </div>
+  )
+}
+
+const ProfileCardAscii = () => {
+  return (
+    <div style={{
+        whiteSpace: "pre",
+        fontFamily: "monospace",
+        overflowX: "auto",
+        lineHeight: 1.1,
+        fontSize: "5px"
+      }}
+    >
+      {ASCII}
+    </div>
+  )
+}
+
+const ProfileCard = () => {
+  return (
+    <Card title="robynhamelryck@portfolio" prepend={<ProfileCardAscii />}>
+      <div className="flex flex-col text-sm">
+        <ProfileCardInformationSection icon={<BookA size={18}/>} title={"Dutch, English"} />
+        <ProfileCardInformationSection icon={<Code size={18}/>} title={"React, TypeScript, Redux"} />
+        <ProfileCardInformationSection icon={<Clock size={18}/>} title={"2+ years"} />
+        <ProfileCardInformationSection icon={<Heart size={18}/>} title={"Gaming, Football, Reafing, Coding"} />
+        <ProfileCardInformationSection icon={<PaintBucket size={18}/>} title={<ProfileCardColorPalette />} />
+      </div>
     </Card>
   )
 }
+
+export default ProfileCard;
