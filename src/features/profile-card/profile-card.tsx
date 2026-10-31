@@ -1,6 +1,7 @@
 import Card from "@/components/custom/card/card";
 import { BookA, Clock, Code, Heart, PaintBucket } from "lucide-react";
-import type { ProfileCardInformationSectionProps } from "./ProfileCard.types";
+import type { ProfileCardInformationSectionProps } from "./profile-card.types";
+import { ThemeChanger } from "./ThemeChanger";
 
 const ASCII = `
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -54,6 +55,7 @@ const ProfileCardColorPalette = () => {
       <span className="bg-background w-5 h-5"></span>
       <span className="bg-foreground w-5 h-5"></span>
       <span className="bg-card-background w-5 h-5"></span>
+      <span className="bg-primary w-5 h-5"></span>
     </div>
   )
 }
@@ -73,9 +75,17 @@ const ProfileCardAscii = () => {
   )
 }
 
+const ProfileCardAppend = () => {
+  return (
+    <div className="flex justify-end">
+      <ThemeChanger />
+    </div>
+  )
+}
+
 const ProfileCard = () => {
   return (
-    <Card title="robynhamelryck@portfolio" prepend={<ProfileCardAscii />}>
+    <Card title="robynhamelryck@portfolio" prepend={<ProfileCardAscii />} append={<ProfileCardAppend />}>
       <div className="flex flex-col text-sm">
         <ProfileCardInformationSection icon={<BookA size={18}/>} title={"Dutch, English"} />
         <ProfileCardInformationSection icon={<Code size={18}/>} title={"React, TypeScript, Redux"} />

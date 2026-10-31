@@ -2,7 +2,6 @@
 
 ## TODO
 
-- Theme changer
 - Favicon
 - Spotify integratie
 - Custom cursor
@@ -15,3 +14,7 @@
 
 Radial gradient for background?
 page footer like a doc?
+
+custom dropdown-menu
+
+improve theme changer

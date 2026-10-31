@@ -1,11 +1,14 @@
-import ProfileCard from "./features/profile-card/ProfileCard";
+import { ThemeProvider } from "./components/custom/theme-provider";
+import ProfileCard from "./features/profile-card/profile-card";
 
 function App() {
 
   return (
-    <div className="m-2">
-      <ProfileCard />
-    </div>
+    <ThemeProvider storageKey="vite-ui-theme">
+      <div className="m-2">
+        <ProfileCard />
+      </div>
+    </ThemeProvider>
   );
 }
 

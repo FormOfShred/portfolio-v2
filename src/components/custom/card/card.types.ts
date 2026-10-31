@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export interface CardProps {
+export type CardProps = {
   /** Title of the Card */
   title: string;
   /** Subtitle of the Card */
@@ -9,4 +9,6 @@ export interface CardProps {
   children?: ReactNode;
   /** Prepends to the content (including title and subtitle) of the Card */
   prepend?: ReactNode;
+  /** Appends to the content (including title and subtitle) of the Card */
+  append?: ReactNode;
 }

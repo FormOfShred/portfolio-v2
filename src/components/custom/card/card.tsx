@@ -5,6 +5,7 @@ const Card = ({
   subtitle,
   children,
   prepend,
+  append
 }: CardProps) => {
   return (
     <div className="
@@ -17,6 +18,9 @@ const Card = ({
         <div className="pl-2">
           {children}
         </div>
+      </div>
+      <div className="flex-1">
+        {append}
       </div>
     </div>
   )
