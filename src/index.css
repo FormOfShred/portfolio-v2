@@ -29,7 +29,8 @@
   --muted: oklch(0.94 0.025 90);
   --muted-foreground: oklch(0.45 0.025 300);
 
-  background-color: var(--background);
+  background: radial-gradient(circle at 18% 18%, var(--muted) 0 1px, transparent 1px 100%), var(--background);
+  background-size: 5px 5px;
   color: var(--foreground);
   font-family: "Oxanium", sans-serif;
 }
