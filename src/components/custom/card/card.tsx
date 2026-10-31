@@ -5,12 +5,15 @@ const Card = ({
   subtitle,
   children,
   prepend,
-  append
+  append,
+  className
 }: CardProps) => {
   return (
-    <div className="
+    <div className={`
       border-2 border-border shadow-md bg-card-background text-card-foreground flex px-2 py-1 gap-5
-    ">
+      flex-wrap overflow-hidden
+      ${className}
+    `}>
       <div>{prepend}</div>
       <div>
         <span className="font-semibold">{title}</span>

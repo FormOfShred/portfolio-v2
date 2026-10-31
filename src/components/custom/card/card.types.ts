@@ -11,4 +11,6 @@ export type CardProps = {
   prepend?: ReactNode;
   /** Appends to the content (including title and subtitle) of the Card */
   append?: ReactNode;
+  /* Add a custom classname */
+  className?: string;
 }

@@ -1,8 +1,9 @@
 import Card from "@/components/custom/card/card";
 import { BookA, Clock, Code, Heart, PaintBucket } from "lucide-react";
 import type { ProfileCardInformationSectionProps } from "./profile-card.types";
-import { ThemeChanger } from "./ThemeChanger";
+import { ThemeChanger } from "./theme-changer";
 import { useEffect, useState } from "react";
+import GithubHeatmap from "./github-heatmap";
 
 const ASCII = `
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -94,13 +95,18 @@ const ProfileCardAppend = () => {
   }, [])
 
   return (
-    <div className="flex justify-end gap-5 items-center">
-      <div className="flex items-center gap-2">
-        <span className="flex w-2 h-2 bg-accent rounded-xl animate-pulse"></span>
-        <span>Developing: portfolio</span>
+    <div className="flex flex-col p-2">
+      <div className="flex gap-5 items-center justify-end">
+        <div className="flex items-center gap-2">
+          <span className="flex w-2 h-2 bg-accent rounded-xl animate-pulse"></span>
+          <span>Developing: portfolio</span>
+        </div>
+        <span className="text-shadow-lg">{time}</span>
+        <ThemeChanger />
       </div>
-      <span className="text-shadow-lg">{time}</span>
-      <ThemeChanger />
+      <div className="grid lg:grid-cols-2">
+        <GithubHeatmap />
+      </div>
     </div>
   )
 }

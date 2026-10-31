@@ -1,0 +1,9 @@
+.github-calendar-wrapper {
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.github-calendar-inner {
+  width: max-content;
+  transform: translateX(clamp(-400px, calc(100cqw - 600px), 0px));
+}
